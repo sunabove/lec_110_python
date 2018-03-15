@@ -24,13 +24,13 @@ def main() :
 
     index = 0 
 
-    valid = False ; 
+    valid = False 
 
     while False == valid :
         y = f( x )
         print( "[%04d] f(%.20f) = %.20f" % ( index, x , y ) )
         x = x - ( y/(2*derivative( x )) )
-        valid = abs( y ) < EPSILON ; 
+        valid = abs( y ) < EPSILON 
         index += 1 
 
     if True == valid :   
