@@ -2,7 +2,7 @@
 
 version = 1.1 
 LINE = "#####################################################"
-EPSILON = 1.0/100000000 
+EPSILON = 1/100000
 
 def f( x ) :
     
@@ -29,7 +29,7 @@ def main() :
     while False == valid :
         y = f( x )
         print( "[%04d] f(%.20f) = %.20f" % ( index, x , y ) )
-        x = x - ( y/(2*derivative( x )) )
+        x = x - ( y/(1*derivative( x )) )
         valid = abs( y ) < EPSILON 
         index += 1 
 
