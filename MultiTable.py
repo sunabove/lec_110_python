@@ -5,8 +5,10 @@
 fw = 119
 w = fw//4*4
 borders = [ 
-            [ "╔", "╦", "╗" ], [ "║", "║",  "║" ], 
-            [ "╠", "╦", "╣" ], [ "╠", "╬", "╣" ],  
+            [ "╔", "╦", "╗" ],
+            [ "║", "║", "║" ],
+            [ "╠", "╦", "╣" ],
+            [ "╠", "╬", "╣" ],
             [ "╚", "╩", "╝" ] 
         ]
 
@@ -17,23 +19,18 @@ def p( btype = 0, c = " ", *cells ) :
         cells = cells[0]
     pass
 
-    lents = len( cells )
-    tw = w // lents
+    len_cells = len( cells )
+    tw = w // len_cells
     
     for i, cell in enumerate( cells ) : 
         b = borders[btype]
         t = ""
 
-        if i == 0 : 
-            t += b[0]
-        else :
-            t += b[1]
+        t += b[0] if i == 0 else b[1]
         
-        t += cell.center( tw - len(cell) - 1 + len(cell.encode("ascii", "ignore")), c ) 
+        t += cell.center( tw - ( len(cell) - len(cell.encode("ascii", "ignore"))  + 1), c ) 
 
-        if i == lents - 1 : 
-            t += b[-1] 
-        pass
+        t += b[-1] if i == len_cells -1 else "" 
         
         print( t, end="" )
     pass
