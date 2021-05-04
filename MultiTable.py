@@ -22,6 +22,7 @@ def p( btype = 0, c = " ", *cells ) :
     len_cells = len( cells )
     tw = w // len_cells
     
+    line = ""
     for i, cell in enumerate( cells ) : 
         b = borders[btype]
         t = ""
@@ -32,9 +33,10 @@ def p( btype = 0, c = " ", *cells ) :
 
         t += b[-1] if i == len_cells -1 else "" 
         
-        print( t, end="" )
+        line += t
     pass
-    print()
+
+    print( " ", line )
 pass
 
 print()
@@ -45,8 +47,7 @@ for i in range( 2, 7, 4 ) :
     p( 1, " ", [ f"{i + c} 단" for c in range(4) ] )
     p( 3, "═", [""] * 4 )
     for r in range( 1, 10 ) :
-        cells = [ f"{i + c} x {r} = {(i+c)*r:2}" for c in range(4) ]
-        p( 1, " ", cells )
+        p( 1, " ", [ f"{i + c} x {r} = {(i+c)*r:2}" for c in range(4) ] )
     pass
 pass
 p( 4, "═", [""] * 4 )
